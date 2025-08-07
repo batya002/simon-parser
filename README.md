@@ -12,26 +12,29 @@ git clone https://github.com/batya002/simon-parser.git
 cd simon-parser
 ```
 
+### 2. Create a virtual environment
 ```bash
 python -m venv venv
 ```
 
-### for Linux / macOS
+### 2. Activate the environment
+
+## on Linux / macOS
 ```bash
 source venv/bin/activate
 ```
 
-for Windows
+## on Windows
 ```bash
 venv\Scripts\activate
 ```
 
-### Install dependencies
+### 4. Install dependencies
 ```bash
 pip install selenium webdriver-manager beautifulsoup4 requests
 ```
 
-### Run the script
+### 5. Run the script
 ```bash
 python main.py
 ```
