@@ -6,23 +6,20 @@ URL = "https://en.zalando.de/mens-shoes/"
 
 def get_html_with_playwright():
     with sync_playwright() as p:
-        browser = p.chromium.launch(headless=False, slow_mo=100)  # для отладки
+        browser = p.chromium.launch(headless=False, slow_mo=100)
         page = browser.new_page()
         page.goto(URL, timeout=60000, wait_until="networkidle")
 
-        # Клик по "Accept cookies" если есть
         try:
             page.click("button:has-text('Accept')", timeout=5000)
             print("✅ Clicked Accept Cookies")
         except:
             print("⚠️ No cookie banner found")
 
-        # Прокрутка вниз
         for _ in range(15):
             page.mouse.wheel(0, 10000)
             page.wait_for_timeout(1500)
 
-        # Сохраняем HTML и скриншот
         page.wait_for_timeout(3000)
         page.screenshot(path="zalando.png", full_page=True)
         html = page.content()
@@ -69,7 +66,7 @@ def parse_products(html):
 
     return products
 
-def save_to_json(data, filename="zalando_products.json"):
+def save_to_json(data, filename="json/zalando_products.json"):
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
