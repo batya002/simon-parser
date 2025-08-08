@@ -5,6 +5,8 @@ soprano_uzb_followers.txt
 zalando.py
 zalando.png
 zalando_products.json
+index.py
 
 venv/
 json/
+__pycache__/
