@@ -70,7 +70,7 @@ def save_to_json(data, filename="json/zalando_products.json"):
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=4)
 
-def main():
+def run_zalando():
     print("Opening Zalando with Playwright...")
     html = get_html_with_playwright()
     print("Parsing products...")
@@ -80,4 +80,4 @@ def main():
     print("Saved to zalando_products.json")
 
 if __name__ == "__main__":
-    main()
+    run_zalando()
